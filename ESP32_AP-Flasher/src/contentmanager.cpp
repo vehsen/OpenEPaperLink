@@ -878,7 +878,7 @@ const String getWeatherIcon(const uint8_t id, const bool isNight = false) {
 }
 
 void drawWeather(String &filename, JsonObject &cfgobj, const tagRecord *taginfo, imgParam &imageParams) {
-    wsLog("get weather");
+    wsLog("get weather.");
 
     getLocation(cfgobj);
 
