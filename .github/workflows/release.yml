@@ -1,9 +1,7 @@
 name: Release binaries
 
 on:
-  push:
-    tags:
-      - '*'
+  workflow_dispatch:
 
 env:
   INCLUDE_C6_H2: true
