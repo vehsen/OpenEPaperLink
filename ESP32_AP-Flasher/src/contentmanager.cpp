@@ -947,7 +947,7 @@ void drawWeather(String &filename, JsonObject &cfgobj, const tagRecord *taginfo,
     const auto &temp = doc["temp"];
     drawString(spr, String(tmpOutput), temp[0], temp[1], temp[2], TL_DATUM, (temperature < 0 ? imageParams.highlightColor : TFT_BLACK));
 
-    const int iconcolor = (weathercode == 55 || weathercode == 65 || weathercode == 75 || weathercode == 82 || weathercode == 86 || weathercode == 95 || weathercode == 96 || weathercode == 99)
+    const int iconcolor = (weathercode == 0 || weathercode == 1 || weathercode == 2 || weathercode == 82 || weathercode == 86 || weathercode == 95 || weathercode == 96 || weathercode == 99)
                               ? imageParams.highlightColor
                               : TFT_BLACK;
     const auto &icon = doc["icon"];
@@ -1004,7 +1004,7 @@ void drawForecast(String &filename, JsonObject &cfgobj, const tagRecord *taginfo
         uint8_t weathercode = daily["weathercode"][dag].as<int>();
         if (weathercode > 40) weathercode -= 40;
 
-        const int iconcolor = (weathercode == 55 || weathercode == 65 || weathercode == 75 || weathercode == 82 || weathercode == 86 || weathercode == 95 || weathercode == 96 || weathercode == 99)
+        const int iconcolor = (weathercode == 0 || weathercode == 1 || weathercode == 2 || weathercode == 82 || weathercode == 86 || weathercode == 95 || weathercode == 96 || weathercode == 99)
                                   ? imageParams.highlightColor
                                   : TFT_BLACK;
         drawString(spr, getWeatherIcon(weathercode), loc["icon"][0].as<int>() + dag * column1, loc["icon"][1], "/fonts/weathericons.ttf", TC_DATUM, iconcolor, loc["icon"][2]);
